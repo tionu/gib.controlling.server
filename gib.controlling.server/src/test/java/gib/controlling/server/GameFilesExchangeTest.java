@@ -15,8 +15,8 @@ import com.google.gson.Gson;
 
 import gib.controlling.client.mappings.Level;
 import gib.controlling.client.setup.AppProperties;
+import gib.controlling.persistence.HiDrivePersistenceProvider;
 import gib.controlling.persistence.PersistenceProvider;
-import gib.controlling.zohoAPI.ZohoPersistenceProvider;
 
 public class GameFilesExchangeTest {
 
@@ -83,7 +83,7 @@ public class GameFilesExchangeTest {
 	}
 
 	public int getCurrentLevel() {
-		PersistenceProvider cloudPersistence = new ZohoPersistenceProvider(AppProperties.ZOHO_AUTH_TOKEN);
+		PersistenceProvider cloudPersistence = new HiDrivePersistenceProvider();
 		byte[] levelByteArray = new byte[0];
 		Level cloudLevel = null;
 		try {

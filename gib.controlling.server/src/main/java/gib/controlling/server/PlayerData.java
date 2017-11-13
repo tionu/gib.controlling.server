@@ -12,8 +12,8 @@ import gib.controlling.client.mappings.TimeStamp;
 import gib.controlling.client.mappings.TimeStampLog;
 import gib.controlling.client.mappings.UserSettings;
 import gib.controlling.client.setup.AppProperties;
+import gib.controlling.persistence.HiDrivePersistenceProvider;
 import gib.controlling.persistence.PersistenceProvider;
-import gib.controlling.zohoAPI.ZohoPersistenceProvider;
 
 public class PlayerData {
 
@@ -36,7 +36,7 @@ public class PlayerData {
 		this.playerGroup = String.format("%02d", playerId);
 		lastUpload = 0;
 		keepAlive = 0;
-		cloudPersistence = new ZohoPersistenceProvider(AppProperties.ZOHO_AUTH_TOKEN);
+		cloudPersistence = new HiDrivePersistenceProvider();
 	}
 
 	public UserSettings getUserSettings() throws IOException {

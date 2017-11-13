@@ -11,8 +11,8 @@ import gib.controlling.client.mappings.GameState;
 import gib.controlling.client.mappings.GameState.State;
 import gib.controlling.client.mappings.Level;
 import gib.controlling.client.setup.AppProperties;
+import gib.controlling.persistence.HiDrivePersistenceProvider;
 import gib.controlling.persistence.PersistenceProvider;
-import gib.controlling.zohoAPI.ZohoPersistenceProvider;
 
 public class GameProgress {
 
@@ -20,7 +20,7 @@ public class GameProgress {
 	private Logger log;
 
 	public GameProgress() {
-		cloudPersistence = new ZohoPersistenceProvider(AppProperties.ZOHO_AUTH_TOKEN);
+		cloudPersistence = new HiDrivePersistenceProvider();
 		log = Logger.getLogger(GameStateWatcher.class.getName());
 	}
 
