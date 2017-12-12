@@ -10,7 +10,6 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
-import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.ArrayList;
 import java.util.List;
@@ -46,10 +45,10 @@ import gib.controlling.client.mappings.UserSettings;
 import gib.controlling.client.setup.AppProperties;
 import gib.controlling.persistence.FileTransfer;
 import gib.controlling.persistence.SettingsPersistence;
-import gib.controlling.server.GameFilesExchange;
-import gib.controlling.server.PlayerData;
-import gib.controlling.server.PlayerData.OnlineState;
+import gib.controlling.server.controller.GameFilesExchange;
+import gib.controlling.server.controller.PlayerData;
 import gib.controlling.server.controller.Utils;
+import gib.controlling.server.controller.PlayerData.OnlineState;
 import gib.controlling.server.model.SessionLog;
 
 public class Group extends JPanel {
@@ -539,7 +538,7 @@ public class Group extends JPanel {
 
 		@Override
 		protected Object doInBackground() throws Exception {
-			
+
 			UserSettings userSettings = null;
 			try {
 				userSettings = playerData.getUserSettings();

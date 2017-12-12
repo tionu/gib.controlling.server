@@ -16,7 +16,6 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.nio.file.attribute.FileTime;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.TimeZone;
@@ -46,8 +45,8 @@ import gib.controlling.client.setup.AppProperties;
 import gib.controlling.persistence.FileTransfer;
 import gib.controlling.persistence.HiDrivePersistenceProvider;
 import gib.controlling.persistence.PersistenceProvider;
-import gib.controlling.server.GameFilesExchange;
-import gib.controlling.server.GameProgress;
+import gib.controlling.server.controller.GameFilesExchange;
+import gib.controlling.server.controller.GameProgress;
 import gib.controlling.server.controller.Utils;
 
 public class GameMaster extends JPanel {
@@ -308,10 +307,10 @@ public class GameMaster extends JPanel {
 	}
 
 	public void reload() {
-		new ReloadView().execute();
+		new Reload().execute();
 	}
 
-	private class ReloadView extends SwingWorker<Object, Object> {
+	private class Reload extends SwingWorker<Object, Object> {
 
 		private GameState cloudGameState;
 		private PersistenceProvider cloudPersistence;
@@ -319,7 +318,7 @@ public class GameMaster extends JPanel {
 		private long lastPlayerRequest;
 		private long gameMasterFileLastModified;
 
-		private ReloadView() {
+		private Reload() {
 			btnReload.setEnabled(false);
 			cloudPersistence = new HiDrivePersistenceProvider();
 			cloudGameState = null;

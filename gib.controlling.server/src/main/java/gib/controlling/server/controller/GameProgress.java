@@ -1,4 +1,4 @@
-package gib.controlling.server;
+package gib.controlling.server.controller;
 
 import java.io.IOException;
 

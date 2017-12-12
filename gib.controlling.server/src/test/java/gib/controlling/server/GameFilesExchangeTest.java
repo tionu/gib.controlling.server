@@ -17,6 +17,8 @@ import gib.controlling.client.mappings.Level;
 import gib.controlling.client.setup.AppProperties;
 import gib.controlling.persistence.HiDrivePersistenceProvider;
 import gib.controlling.persistence.PersistenceProvider;
+import gib.controlling.server.controller.GameFilesExchange;
+import gib.controlling.server.controller.GameProgress;
 
 public class GameFilesExchangeTest {
 

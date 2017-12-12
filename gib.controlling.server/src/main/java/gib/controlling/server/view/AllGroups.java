@@ -19,7 +19,7 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingWorker;
 import javax.swing.border.BevelBorder;
 
-import gib.controlling.server.GameFilesExchange;
+import gib.controlling.server.controller.GameFilesExchange;
 
 public class AllGroups extends JPanel {
 
@@ -59,7 +59,7 @@ public class AllGroups extends JPanel {
 		btnReload = new JButton("\u21BB");
 		btnReload.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent e) {
-				new ReloadView().execute();
+				new Reload().execute();
 			}
 		});
 		btnReload.setHorizontalAlignment(SwingConstants.LEADING);
@@ -140,9 +140,9 @@ public class AllGroups extends JPanel {
 
 	}
 
-	private class ReloadView extends SwingWorker<Object, Object> {
+	private class Reload extends SwingWorker<Object, Object> {
 
-		private ReloadView() {
+		private Reload() {
 			btnReload.setEnabled(false);
 		}
 

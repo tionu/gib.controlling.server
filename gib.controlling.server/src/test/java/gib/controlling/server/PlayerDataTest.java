@@ -10,6 +10,8 @@ import org.apache.log4j.PropertyConfigurator;
 import org.junit.Before;
 import org.junit.Test;
 
+import gib.controlling.server.controller.PlayerData;
+
 public class PlayerDataTest {
 
 	@Before

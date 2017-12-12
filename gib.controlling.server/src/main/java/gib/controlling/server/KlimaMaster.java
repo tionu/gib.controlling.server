@@ -1,4 +1,4 @@
-package gib.controlling.server.controller;
+package gib.controlling.server;
 
 import java.awt.EventQueue;
 import java.io.IOException;
@@ -7,7 +7,7 @@ import java.util.Properties;
 import org.apache.log4j.PropertyConfigurator;
 
 import gib.controlling.client.setup.AppProperties;
-import gib.controlling.server.GameFilesExchange;
+import gib.controlling.server.controller.GameFilesExchange;
 import gib.controlling.server.view.DashBoard;
 import gib.controlling.server.view.Group;
 
@@ -41,7 +41,7 @@ public class KlimaMaster {
 	private static void initLog() {
 		Properties props = new Properties();
 		try {
-			props.load(GameFilesExchange.class.getResourceAsStream("setup/log4j.properties"));
+			props.load(KlimaMaster.class.getResourceAsStream("setup/log4j.properties"));
 		} catch (IOException e1) {
 			e1.printStackTrace();
 		}
