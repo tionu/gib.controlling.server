@@ -22,28 +22,36 @@ public class GameFilesExchange {
 		createWorkingDirectory();
 	}
 
-	public void loadAllPlayerFiles() {
-		for (int i = 1; i <= 10; i++) {
-			Path filePath = Paths.get("KL_STA" + String.format("%02d", i) + ".DAT");
-			try {
-				Files.deleteIfExists(AppProperties.getWorkingDirectory().resolve(filePath));
-				FileTransfer.downloadFile(filePath);
-			} catch (IOException e) {
-				e.printStackTrace();
-			}
+	public void downloadPlayerFiles(int groupNumber) {
+		Path filePath = Paths.get("KL_STA" + String.format("%02d", groupNumber) + ".DAT");
+		try {
+			Files.deleteIfExists(AppProperties.getWorkingDirectory().resolve(filePath));
+			FileTransfer.downloadFile(filePath);
+		} catch (IOException e) {
+			e.printStackTrace();
 		}
 	}
 
-	public void pushAllPlayerFiles() {
+	public void downloadAllPlayerFiles() {
 		for (int i = 1; i <= 10; i++) {
-			Path filePath = Paths.get("KL_STA" + String.format("%02d", i) + ".DAT");
-			if (AppProperties.getWorkingDirectory().resolve(filePath).toFile().exists()) {
-				FileTransfer.uploadFile(filePath);
-			}
+			downloadPlayerFiles(i);
 		}
 	}
 
-	public void loadGameMasterFile() {
+	public void uploadPlayerFiles(int groupNumber) {
+		Path filePath = Paths.get("KL_STA" + String.format("%02d", groupNumber) + ".DAT");
+		if (AppProperties.getWorkingDirectory().resolve(filePath).toFile().exists()) {
+			FileTransfer.uploadFile(filePath);
+		}
+	}
+
+	public void uploadAllPlayerFiles() {
+		for (int i = 1; i <= 10; i++) {
+			uploadPlayerFiles(i);
+		}
+	}
+
+	public void downloadGameMasterFile() {
 		Path filePath = Paths.get("SL.DAT");
 		try {
 			Files.deleteIfExists(AppProperties.getWorkingDirectory().resolve(filePath));
@@ -53,7 +61,7 @@ public class GameFilesExchange {
 		}
 	}
 
-	public void pushGameMasterFile() {
+	public void uploadGameMasterFile() {
 		Path filePath = Paths.get("SL.DAT");
 		if (AppProperties.getWorkingDirectory().resolve(filePath).toFile().exists()) {
 			FileTransfer.uploadFile(filePath);

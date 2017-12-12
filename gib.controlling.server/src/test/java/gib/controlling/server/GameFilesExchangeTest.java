@@ -34,7 +34,7 @@ public class GameFilesExchangeTest {
 	@Test
 	public void testLoadAllPlayerFiles() {
 		GameFilesExchange gameFilesExchange = new GameFilesExchange();
-		gameFilesExchange.loadAllPlayerFiles();
+		gameFilesExchange.downloadAllPlayerFiles();
 		for (int i = 1; i <= 10; i++) {
 			File file = AppProperties.getWorkingDirectory()
 					.resolve(Paths.get("KL_STA" + String.format("%02d", i) + ".DAT")).toFile();
@@ -45,7 +45,7 @@ public class GameFilesExchangeTest {
 	@Test
 	public void testLoadGameMasterFile() {
 		GameFilesExchange gameFilesExchange = new GameFilesExchange();
-		gameFilesExchange.loadGameMasterFile();
+		gameFilesExchange.downloadGameMasterFile();
 		File file = AppProperties.getWorkingDirectory().resolve(Paths.get("SL.DAT")).toFile();
 		assertTrue(file.exists());
 	}
@@ -55,8 +55,8 @@ public class GameFilesExchangeTest {
 		int currentLevel = getCurrentLevel();
 
 		GameFilesExchange gameFilesExchange = new GameFilesExchange();
-		gameFilesExchange.pushGameMasterFile();
-		gameFilesExchange.pushAllPlayerFiles();
+		gameFilesExchange.uploadGameMasterFile();
+		gameFilesExchange.uploadAllPlayerFiles();
 
 		GameProgress gameProgress = new GameProgress();
 		gameProgress.setLevel(currentLevel + 1);
@@ -66,13 +66,13 @@ public class GameFilesExchangeTest {
 	@Test
 	public void testPushGameMasterFile() {
 		GameFilesExchange gameFilesExchange = new GameFilesExchange();
-		gameFilesExchange.pushGameMasterFile();
+		gameFilesExchange.uploadGameMasterFile();
 	}
 
 	@Test
 	public void testPushAllPlayerFiles() {
 		GameFilesExchange gameFilesExchange = new GameFilesExchange();
-		gameFilesExchange.pushAllPlayerFiles();
+		gameFilesExchange.uploadAllPlayerFiles();
 	}
 
 	@Test
