@@ -1,5 +1,8 @@
 package gib.controlling.server.controller;
 
+import java.io.File;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.TimeZone;
@@ -16,6 +19,13 @@ public class Utils {
 		SimpleDateFormat format = new SimpleDateFormat(AppProperties.DATE_FORMAT);
 		format.setTimeZone(TimeZone.getDefault());
 		return format.format(date);
+	}
+
+	public static void createWorkingDirectory() {
+		Path workingDirectory = AppProperties.getWorkingDirectory();
+		if (!Files.exists(workingDirectory)) {
+			new File(workingDirectory.toUri()).mkdir();
+		}
 	}
 
 }

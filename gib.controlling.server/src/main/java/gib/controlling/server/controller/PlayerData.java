@@ -30,10 +30,10 @@ public class PlayerData {
 	private long keepAlive;
 
 	public PlayerData(int playerId) {
-		if (playerId < 1 || playerId > 10) {
+		if ((playerId < 1) || (playerId > 10)) {
 			throw new IllegalArgumentException();
 		}
-		this.playerGroup = String.format("%02d", playerId);
+		playerGroup = String.format("%02d", playerId);
 		lastUpload = 0;
 		keepAlive = 0;
 		cloudPersistence = new HiDrivePersistenceProvider();

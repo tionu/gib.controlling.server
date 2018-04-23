@@ -23,6 +23,10 @@ import gib.controlling.server.controller.GameFilesExchange;
 
 public class AllGroups extends JPanel {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton btnReload;
 	private JButton btnSave;
 	private DashBoard dashboard;

@@ -47,12 +47,16 @@ import gib.controlling.persistence.FileTransfer;
 import gib.controlling.persistence.SettingsPersistence;
 import gib.controlling.server.controller.GameFilesExchange;
 import gib.controlling.server.controller.PlayerData;
-import gib.controlling.server.controller.Utils;
 import gib.controlling.server.controller.PlayerData.OnlineState;
+import gib.controlling.server.controller.Utils;
 import gib.controlling.server.model.SessionLog;
 
 public class Group extends JPanel {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private JLabel lblLastUpload;
 	private JSpinner spnLevel;
 	private JTextField txtId;
@@ -275,8 +279,13 @@ public class Group extends JPanel {
 		sessionLog.add(tblSessions, BorderLayout.CENTER);
 		tblSessions.setModel(new DefaultTableModel(new Object[][] { { "-", "-", "-" }, },
 				new String[] { "Login:", "Keep Alive:", "Minutes:" }) {
+			/**
+					 *
+					 */
+			private static final long serialVersionUID = 1L;
 			Class[] columnTypes = new Class[] { String.class, String.class, String.class };
 
+			@Override
 			public Class getColumnClass(int columnIndex) {
 				return columnTypes[columnIndex];
 			}
@@ -441,7 +450,7 @@ public class Group extends JPanel {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if (userSettings == null || userSettings.getPlayerGroup() != groupNumber) {
+			if ((userSettings == null) || (userSettings.getPlayerGroup() != groupNumber)) {
 				btnSave.setText("error");
 				Thread.sleep(1000);
 				btnSave.setText(btnText);
@@ -545,7 +554,7 @@ public class Group extends JPanel {
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-			if (userSettings == null || userSettings.getPlayerGroup() != groupNumber) {
+			if ((userSettings == null) || (userSettings.getPlayerGroup() != groupNumber)) {
 				btnReset.setText("n/a");
 				Thread.sleep(1000);
 				btnReset.setText(btnText);

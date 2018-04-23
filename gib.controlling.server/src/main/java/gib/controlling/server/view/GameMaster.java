@@ -51,6 +51,10 @@ import gib.controlling.server.controller.Utils;
 
 public class GameMaster extends JPanel {
 
+	/**
+	 *
+	 */
+	private static final long serialVersionUID = 1L;
 	private JButton btnReload;
 	private JButton btnSave;
 	private JComboBox<GameState.State> cmbGameState;

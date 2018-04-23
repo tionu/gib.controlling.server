@@ -1,6 +1,7 @@
 package gib.controlling.server.view;
 
 import java.awt.BorderLayout;
+import java.awt.Frame;
 import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
@@ -11,7 +12,7 @@ import javax.swing.UIManager;
 
 public class DashBoard {
 
-	private JFrame frame;
+	private JFrame frmKlimaMaster;
 
 	private List<Group> groups;
 
@@ -29,13 +30,14 @@ public class DashBoard {
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
-		frame = new JFrame();
-		frame.setBounds(100, 100, 1024, 720);
-		frame.setExtendedState(JFrame.MAXIMIZED_BOTH);
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frmKlimaMaster = new JFrame();
+		frmKlimaMaster.setTitle("Klima Master");
+		frmKlimaMaster.setBounds(100, 100, 1024, 720);
+		frmKlimaMaster.setExtendedState(Frame.MAXIMIZED_BOTH);
+		frmKlimaMaster.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
 		JPanel settings = new JPanel();
-		frame.getContentPane().add(settings, BorderLayout.CENTER);
+		frmKlimaMaster.getContentPane().add(settings, BorderLayout.CENTER);
 		settings.setLayout(new GridLayout(0, 4, 0, 0));
 
 		Group group01 = new Group(1);
@@ -86,7 +88,7 @@ public class DashBoard {
 	}
 
 	public JFrame getFrame() {
-		return frame;
+		return frmKlimaMaster;
 	}
 
 	public List<Group> getGroups() {
